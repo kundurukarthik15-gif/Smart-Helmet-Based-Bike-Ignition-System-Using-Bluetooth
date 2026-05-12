@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartRide — Components</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><div class="logo-icon"></div><span>SMART <span class="accent-orange">RIDE</span></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="components.html" class="active">Components</a></li>
+                <li><a href="safety.html">Safety Data</a></li>
+                <li><a href="emergency.html">Emergency</a></li>
+                <li><a href="future.html">Future</a></li>
+            </ul>
+            <div class="system-status"><span class="status-dot"></span><span class="status-text">SYSTEM ONLINE</span></div>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header reveal">
+                <span class="section-tag">// HARDWARE & SOFTWARE</span>
+                <h1 class="section-title">Technical <span class="accent-cyan">Specifications</span></h1>
+                <p class="page-subtitle">All 7 hardware components that power the SmartRide helmet ignition system.</p>
+            </div>
+
+            <div class="components-grid">
+                <div class="tech-card reveal delay-1">
+                    <div class="tech-header"><i class="fa-solid fa-memory icon-blue"></i><h3>Arduino Nano</h3></div>
+                    <div class="tech-subtitle">Helmet Controller Unit</div>
+                    <p>The compact brain mounted inside the helmet. Reads FSR sensor data and controls the HC-05 Bluetooth module to send authenticated packets to the bike.</p>
+                </div>
+                <div class="tech-card reveal delay-2">
+                    <div class="tech-header"><i class="fa-solid fa-tachograph-digital icon-orange"></i><h3>FSR-402 Sensor</h3></div>
+                    <div class="tech-subtitle">Force Sensitive Resistor</div>
+                    <p>Detects physical pressure inside the helmet padding. When ADC reading exceeds threshold 300, the system activates and begins transmitting WORN packets.</p>
+                </div>
+                <div class="tech-card active-card reveal delay-3">
+                    <div class="tech-header"><i class="fa-brands fa-bluetooth icon-blue"></i><h3>HC-05 Bluetooth</h3></div>
+                    <div class="tech-subtitle">Wireless Communication Module</div>
+                    <p>Two HC-05 modules — one in MASTER mode (helmet) and one in SLAVE mode (bike). Establishes a reliable, low-latency wireless link for packet transmission.</p>
+                </div>
+                <div class="tech-card reveal delay-4">
+                    <div class="tech-header"><i class="fa-solid fa-lightbulb icon-orange"></i><h3>LED Indicators</h3></div>
+                    <div class="tech-subtitle">Visual Feedback System</div>
+                    <p>Green LED (Pin 5) = ignition unlocked. Red LED (Pin 6) = ignition locked. Status LED on helmet (Pin 13) = BT transmission active.</p>
+                </div>
+                <div class="tech-card reveal delay-5">
+                    <div class="tech-header"><i class="fa-solid fa-volume-high icon-blue"></i><h3>Buzzer</h3></div>
+                    <div class="tech-subtitle">Audio Alert System</div>
+                    <p>Connected to Pin 9 on the bike unit. Emits an alert if the rider attempts to start the bike without the helmet or removes it while riding.</p>
+                </div>
+                <div class="tech-card reveal delay-1">
+                    <div class="tech-header"><i class="fa-solid fa-motorcycle icon-orange"></i><h3>5V Relay Module</h3></div>
+                    <div class="tech-subtitle">Ignition Control</div>
+                    <p>Connected to Pin 7. When WORN signal is received and token validated, relay closes (NO contact) completing the ignition circuit. Opens on OFFHEAD or timeout.</p>
+                </div>
+                <div class="tech-card reveal delay-2">
+                    <div class="tech-header"><i class="fa-solid fa-battery-full icon-blue"></i><h3>Battery Supply</h3></div>
+                    <div class="tech-subtitle">Power Management</div>
+                    <p>Rechargeable Li-ion battery for the helmet unit. Bike unit powered from the vehicle's 5V regulated supply via USB or voltage regulator.</p>
+                </div>
+            </div>
+
+            <!-- Installation Steps -->
+            <div class="reveal" style="margin-top:5rem;">
+                <div class="page-header">
+                    <span class="section-tag">// DEPLOYMENT</span>
+                    <h2 class="section-title">Installation <span class="accent-cyan">Steps</span></h2>
+                </div>
+                <div class="instructions-block tech-card">
+                    <ul class="info-list numbered-list">
+                        <li><div class="list-num">1</div><div class="list-content"><strong>Hardware Setup</strong><p>Connect all components to Arduino Nano (helmet) and relay board (bike) as per the wiring diagrams in the README.</p></div></li>
+                        <li><div class="list-num">2</div><div class="list-content"><strong>Software Flash</strong><p>Upload <code class="code-inline">helmet_controller.ino</code> to Arduino Nano and <code class="code-inline">bike_ecu.ino</code> to the bike's Arduino board using Arduino IDE.</p></div></li>
+                        <li><div class="list-num">3</div><div class="list-content"><strong>Bluetooth Pairing</strong><p>Configure HC-05 modules via AT commands — set one as MASTER (helmet) and one as SLAVE (bike), then pair them together.</p></div></li>
+                        <li><div class="list-num">4</div><div class="list-content"><strong>Power ON</strong><p>Power ON both the helmet unit and the motorcycle onboard unit. Green LED should blink indicating ready state.</p></div></li>
+                        <li><div class="list-num">5</div><div class="list-content"><strong>System Check</strong><p>Wear the helmet — green LED should go solid. Remove helmet — red LED activates and buzzer sounds. Test relay click.</p></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-nav">
+            <a href="how-it-works.html" class="page-nav-btn secondary"><i class="fa-solid fa-arrow-left"></i> HOW IT WORKS</a>
+            <a href="safety.html" class="page-nav-btn">NEXT: SAFETY DATA <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

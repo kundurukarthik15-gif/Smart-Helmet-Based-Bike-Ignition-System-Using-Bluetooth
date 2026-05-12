@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartRide — About</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><div class="logo-icon"></div><span>SMART <span class="accent-orange">RIDE</span></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="safety.html">Safety Data</a></li>
+                <li><a href="emergency.html">Emergency</a></li>
+                <li><a href="future.html">Future</a></li>
+            </ul>
+            <div class="system-status"><span class="status-dot"></span><span class="status-text">SYSTEM ONLINE</span></div>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header reveal">
+                <span class="section-tag">// PROJECT OVERVIEW</span>
+                <h1 class="section-title">About The <span class="accent-cyan">System</span></h1>
+                <p class="page-subtitle">SmartRide is an IoT-based helmet ignition system built on Arduino Nano that enforces helmet usage by preventing the bike from starting unless the helmet is worn.</p>
+            </div>
+
+            <div class="about-grid">
+                <div class="about-card glow-card reveal delay-1">
+                    <div class="card-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                    <h3>Enhancing Road Safety</h3>
+                    <p>The system actively improves road safety by ensuring strict helmet usage. It creates an undeniable link between the rider's safety gear and the vehicle's ignition.</p>
+                </div>
+                <div class="about-card glow-card reveal delay-2">
+                    <div class="card-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <h3>Smart Processing</h3>
+                    <p>Powered by Arduino Nano microcontrollers, the system processes FSR sensor data in real-time, making split-second decisions without impacting the rider's experience.</p>
+                </div>
+                <div class="about-card glow-card reveal delay-3">
+                    <div class="card-icon"><i class="fa-brands fa-bluetooth-b"></i></div>
+                    <h3>Wireless Communication</h3>
+                    <p>Utilizes reliable HC-05 Bluetooth technology to maintain a secure, wireless connection between the helmet unit and the bike's onboard computer.</p>
+                </div>
+            </div>
+
+            <!-- Project Details -->
+            <div class="about-details reveal">
+                <div class="detail-block">
+                    <h3><i class="fa-solid fa-circle-info accent-cyan"></i> Project Overview</h3>
+                    <p>SmartRide is a final-year DTI project that addresses one of India's biggest road safety challenges — helmet non-compliance. Using an FSR-402 pressure sensor embedded in the helmet and HC-05 Bluetooth modules for communication, the system physically prevents the bike's ignition from activating unless the helmet is properly worn.</p>
+                </div>
+                <div class="detail-block">
+                    <h3><i class="fa-solid fa-microchip accent-orange"></i> Hardware Stack</h3>
+                    <ul class="detail-list">
+                        <li><i class="fa-solid fa-check accent-cyan"></i> Arduino Nano — Helmet controller</li>
+                        <li><i class="fa-solid fa-check accent-cyan"></i> FSR-402 — Pressure detection</li>
+                        <li><i class="fa-solid fa-check accent-cyan"></i> HC-05 (Master) — Helmet BT transmitter</li>
+                        <li><i class="fa-solid fa-check accent-cyan"></i> HC-05 (Slave) — Bike BT receiver</li>
+                        <li><i class="fa-solid fa-check accent-cyan"></i> 5V Relay Module — Ignition control</li>
+                        <li><i class="fa-solid fa-check accent-cyan"></i> LEDs + Buzzer — Status feedback</li>
+                    </ul>
+                </div>
+                <div class="detail-block">
+                    <h3><i class="fa-solid fa-lock accent-orange"></i> Security</h3>
+                    <p>Every Bluetooth packet contains an authentication token <code class="code-inline">SR_UNLOCK_2024</code>. The bike ECU validates this token before acting on any command. A 3-second watchdog timer automatically locks the ignition if the signal is lost.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-nav">
+            <a href="index.html" class="page-nav-btn secondary"><i class="fa-solid fa-arrow-left"></i> HOME</a>
+            <a href="how-it-works.html" class="page-nav-btn">NEXT: HOW IT WORKS <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

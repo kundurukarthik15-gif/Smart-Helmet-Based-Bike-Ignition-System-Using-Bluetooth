@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartRide — Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><div class="logo-icon"></div><span>SMART <span class="accent-orange">RIDE</span></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="safety.html">Safety Data</a></li>
+                <li><a href="emergency.html">Emergency</a></li>
+                <li><a href="future.html">Future</a></li>
+            </ul>
+            <div class="system-status"><span class="status-dot"></span><span class="status-text">SYSTEM ONLINE</span></div>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero section">
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="badge"><i class="fa-solid fa-bolt accent-orange"></i><span>IoT SAFETY SYSTEM v2.4</span></div>
+                <h1 class="hero-title">RIDE SAFE.<br><span class="accent-cyan">HELMET FIRST.</span><br><span class="accent-orange">ALWAYS.</span></h1>
+                <p class="hero-desc">Enhancing Rider Safety Using Smart Technology. This project ensures that the bike starts only when the rider is wearing a helmet using pressure sensors and Bluetooth communication. Zero compromise on safety.</p>
+                <div class="hero-buttons">
+                    <a href="about.html" class="btn btn-primary">LEARN MORE</a>
+                    <a href="how-it-works.html" class="btn btn-outline">HOW IT WORKS</a>
+                </div>
+
+                <!-- Page navigation buttons -->
+                <div class="hero-page-nav">
+                    <p class="hero-page-nav-label"><i class="fa-solid fa-grip-dots-vertical accent-cyan"></i> EXPLORE PAGES</p>
+                    <div class="hero-page-btns">
+                        <a href="about.html" class="hero-page-btn">
+                            <i class="fa-solid fa-circle-info"></i>
+                            <span>About</span>
+                        </a>
+                        <a href="how-it-works.html" class="hero-page-btn">
+                            <i class="fa-solid fa-gears"></i>
+                            <span>How It Works</span>
+                        </a>
+                        <a href="components.html" class="hero-page-btn">
+                            <i class="fa-solid fa-microchip"></i>
+                            <span>Components</span>
+                        </a>
+                        <a href="safety.html" class="hero-page-btn">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <span>Safety Data</span>
+                        </a>
+                        <a href="emergency.html" class="hero-page-btn emergency-btn">
+                            <i class="fa-solid fa-truck-medical"></i>
+                            <span>Emergency</span>
+                        </a>
+                        <a href="future.html" class="hero-page-btn">
+                            <i class="fa-solid fa-rocket"></i>
+                            <span>Future</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="radar-container">
+                    <div class="radar-circle circle-1"></div>
+                    <div class="radar-circle circle-2"></div>
+                    <div class="radar-circle circle-3"></div>
+                    <div class="helmet-graphic">
+                        <div class="helmet-shape"><div class="visor"></div></div>
+                        <div class="sensor-indicator"><i class="fa-solid fa-bullseye accent-orange"></i><span class="small-label">PRESSURE<br>SENSOR</span></div>
+                        <div class="bt-badge">BT</div>
+                        <div class="signal-waves"><span></span><span></span><span></span></div>
+                    </div>
+                    <div class="floating-label label-top"><i class="fa-solid fa-wifi"></i> BLUETOOTH SIGNAL</div>
+                    <div class="floating-label label-bottom-left"><i class="fa-solid fa-microchip"></i> BIKE ECU LINK</div>
+                    <div class="floating-label label-bottom-right">PRESSURE SENSOR <i class="fa-solid fa-gauge-high"></i></div>
+                </div>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Project Demo Video Section -->
+    <section class="video-section">
+        <div class="container">
+            <div class="video-header reveal">
+                <span class="section-tag">// PROJECT DEMO</span>
+                <h2 class="section-title">See It In <span class="accent-cyan">Action</span></h2>
+                <p class="page-subtitle">Watch our SmartRide helmet ignition system working live — helmet on, bike starts. Helmet off, bike stops.</p>
+            </div>
+
+            <div class="video-wrapper reveal">
+                <div class="video-frame">
+                    <video id="project-video" controls preload="metadata" poster="">
+                        <source src="project.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div class="video-overlay" id="video-overlay">
+                        <button class="video-play-btn" id="video-play-btn">
+                            <i class="fa-solid fa-play"></i>
+                        </button>
+                        <div class="video-overlay-label">SMARTRIDE — LIVE DEMO</div>
+                    </div>
+                </div>
+                <div class="video-controls">
+                    <button class="vid-ctrl-btn" id="vid-backward">
+                        <i class="fa-solid fa-rotate-left"></i>
+                        <span>10s</span>
+                    </button>
+                    <button class="vid-ctrl-btn vid-play-pause" id="vid-play-pause">
+                        <i class="fa-solid fa-play" id="vid-play-icon"></i>
+                    </button>
+                    <button class="vid-ctrl-btn" id="vid-forward">
+                        <i class="fa-solid fa-rotate-right"></i>
+                        <span>10s</span>
+                    </button>
+                </div>
+                <div class="video-meta">
+                    <div class="video-meta-item">
+                        <i class="fa-solid fa-helmet-safety accent-cyan"></i>
+                        <span>Helmet Detection</span>
+                    </div>
+                    <div class="video-meta-item">
+                        <i class="fa-brands fa-bluetooth accent-cyan"></i>
+                        <span>BT Communication</span>
+                    </div>
+                    <div class="video-meta-item">
+                        <i class="fa-solid fa-motorcycle accent-orange"></i>
+                        <span>Ignition Control</span>
+                    </div>
+                    <div class="video-meta-item">
+                        <i class="fa-solid fa-microchip accent-orange"></i>
+                        <span>Arduino Nano</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pages Preview Section -->
+    <section class="pages-preview">
+        <div class="container">
+            <div class="preview-label reveal">
+                <span class="section-tag">// EXPLORE THE PROJECT</span>
+                <h2 class="section-title">What's <span class="accent-cyan">Inside</span></h2>
+            </div>
+
+            <div class="preview-cards">
+
+                <!-- About -->
+                <a href="about.html" class="preview-card reveal delay-1">
+                    <div class="preview-card-num">01</div>
+                    <div class="preview-card-icon"><i class="fa-solid fa-circle-info"></i></div>
+                    <div class="preview-card-body">
+                        <h3>About The System</h3>
+                        <p>Learn what SmartRide is, how it was built, the hardware stack used, and the security mechanism that makes it reliable.</p>
+                        <ul class="preview-card-tags">
+                            <li>Arduino Nano</li>
+                            <li>HC-05 BT</li>
+                            <li>FSR-402</li>
+                        </ul>
+                    </div>
+                    <div class="preview-card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <!-- How It Works -->
+                <a href="how-it-works.html" class="preview-card reveal delay-2">
+                    <div class="preview-card-num">02</div>
+                    <div class="preview-card-icon accent-orange"><i class="fa-solid fa-gears"></i></div>
+                    <div class="preview-card-body">
+                        <h3>How It Works</h3>
+                        <p>A 4-step process — wear helmet, sensor triggers BT, signal sent to bike, ignition unlocked. Plus the full BT protocol and user instructions.</p>
+                        <ul class="preview-card-tags">
+                            <li>4-Step Flow</li>
+                            <li>BT Protocol</li>
+                            <li>Instructions</li>
+                        </ul>
+                    </div>
+                    <div class="preview-card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <!-- Components -->
+                <a href="components.html" class="preview-card reveal delay-3">
+                    <div class="preview-card-num">03</div>
+                    <div class="preview-card-icon"><i class="fa-solid fa-microchip"></i></div>
+                    <div class="preview-card-body">
+                        <h3>Components</h3>
+                        <p>Technical specs for all 7 hardware components — Arduino Nano, FSR sensor, HC-05 modules, relay, LEDs, buzzer, and battery supply.</p>
+                        <ul class="preview-card-tags">
+                            <li>7 Components</li>
+                            <li>Wiring Guide</li>
+                            <li>Installation</li>
+                        </ul>
+                    </div>
+                    <div class="preview-card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <!-- Safety Data -->
+                <a href="safety.html" class="preview-card reveal delay-4">
+                    <div class="preview-card-num">04</div>
+                    <div class="preview-card-icon accent-orange"><i class="fa-solid fa-shield-halved"></i></div>
+                    <div class="preview-card-body">
+                        <h3>Safety Data</h3>
+                        <p>Real statistics — 1,50,000 deaths/year, 69% from head injuries. Plus 6 proven facts on how helmets save lives on every ride.</p>
+                        <ul class="preview-card-tags">
+                            <li>MoRTH Data</li>
+                            <li>WHO Stats</li>
+                            <li>Helmet Facts</li>
+                        </ul>
+                    </div>
+                    <div class="preview-card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <!-- Emergency -->
+                <a href="emergency.html" class="preview-card preview-card-emergency reveal delay-5">
+                    <div class="preview-card-num">05</div>
+                    <div class="preview-card-icon" style="color:#ff0040;"><i class="fa-solid fa-truck-medical"></i></div>
+                    <div class="preview-card-body">
+                        <h3>Emergency Contacts</h3>
+                        <p>6 tap-to-call emergency numbers — Ambulance 108, Police 100, Fire 101, National 112, Highway 1033, and Road Accident Helpline.</p>
+                        <ul class="preview-card-tags emergency-tags">
+                            <li>108 Ambulance</li>
+                            <li>100 Police</li>
+                            <li>112 Unified</li>
+                        </ul>
+                    </div>
+                    <div class="preview-card-arrow" style="color:#ff0040;"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <!-- Future -->
+                <a href="future.html" class="preview-card reveal delay-1">
+                    <div class="preview-card-num">06</div>
+                    <div class="preview-card-icon"><i class="fa-solid fa-rocket"></i></div>
+                    <div class="preview-card-body">
+                        <h3>Future Improvements</h3>
+                        <p>Roadmap for v2.0 — GPS tracking, accident detection, mobile app, emergency SMS, voice alerts, and IoT cloud dashboard.</p>
+                        <ul class="preview-card-tags">
+                            <li>GPS</li>
+                            <li>Mobile App</li>
+                            <li>IoT Dashboard</li>
+                        </ul>
+                    </div>
+                    <div class="preview-card-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    </section>
+
+    <!-- Get In Touch / Project Info Footer -->
+    <footer class="home-footer">
+        <div class="container">
+
+            <!-- Top info grid -->
+            <div class="home-footer-grid">
+
+                <!-- College & Project -->
+                <div class="hf-block reveal">
+                    <div class="hf-block-icon"><i class="fa-solid fa-building-columns"></i></div>
+                    <h4>Institution</h4>
+                    <p class="hf-main">Vignan's Institute of Information Technology</p>
+                    <p class="hf-sub">Department of CSE — Data Science</p>
+                    <p class="hf-sub"><i class="fa-solid fa-location-dot accent-orange"></i> Visakhapatnam, Andhra Pradesh</p>
+                    <p class="hf-sub"><i class="fa-solid fa-calendar accent-cyan"></i> Academic Year 2025–2026</p>
+                </div>
+
+                <!-- Guide -->
+                <div class="hf-block reveal delay-1">
+                    <div class="hf-block-icon accent-orange"><i class="fa-solid fa-chalkboard-user"></i></div>
+                    <h4>Project Guide</h4>
+                    <p class="hf-main">Mrs. A. Sarvani</p>
+                    <p class="hf-sub">Assistant Professor</p>
+                    <p class="hf-sub">Department of Electronics &amp; Computer Engineering</p>
+                    <p class="hf-sub">Vignan's Institute of Information Technology</p>
+                </div>
+
+                <!-- Team -->
+                <div class="hf-block reveal delay-2">
+                    <div class="hf-block-icon"><i class="fa-solid fa-users"></i></div>
+                    <h4>Project Team</h4>
+                    <ul class="hf-team-list">
+                        <li><span class="hf-team-dot"></span>P. Harshini Padmavathi</li>
+                        <li><span class="hf-team-dot"></span>K. Karthik</li>
+                        <li><span class="hf-team-dot"></span>T. Thrishitha</li>
+                        <li><span class="hf-team-dot"></span>S. Rizawana</li>
+                        <li><span class="hf-team-dot"></span>S. Renuka</li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div class="hf-block reveal delay-3">
+                    <div class="hf-block-icon accent-orange"><i class="fa-solid fa-address-card"></i></div>
+                    <h4>Get In Touch</h4>
+                    <a href="mailto:padamavathipachitala2719@gmail.com" class="hf-contact-row">
+                        <i class="fa-solid fa-envelope"></i>
+                        <span>padamavathipachitala2719@gmail.com</span>
+                    </a>
+                    <a href="tel:+919032686136" class="hf-contact-row">
+                        <i class="fa-solid fa-phone"></i>
+                        <span>+91 90326 86136</span>
+                    </a>
+                    <a href="https://www.vignaniit.edu.in" target="_blank" class="hf-contact-row">
+                        <i class="fa-solid fa-globe"></i>
+                        <span>vignaniit.edu.in</span>
+                    </a>
+                </div>
+
+            </div>
+
+            <!-- Divider -->
+            <div class="hf-divider"></div>
+
+            <!-- Bottom bar -->
+            <div class="hf-bottom">
+                <div class="logo">
+                    <div class="logo-icon"></div>
+                    <span>SMART <span class="accent-orange">RIDE</span></span>
+                </div>
+                <p class="hf-tagline">Safety First — Smart Riding for a Better Future</p>
+                <p class="hf-copy">&copy; 2026 SmartRide &nbsp;|&nbsp; Vignan's IIT &nbsp;|&nbsp; CSE-DS &nbsp;|&nbsp; All Rights Reserved</p>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

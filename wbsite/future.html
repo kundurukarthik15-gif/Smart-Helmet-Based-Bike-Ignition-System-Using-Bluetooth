@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartRide — Future Improvements</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><div class="logo-icon"></div><span>SMART <span class="accent-orange">RIDE</span></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="how-it-works.html">How It Works</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="safety.html">Safety Data</a></li>
+                <li><a href="emergency.html">Emergency</a></li>
+                <li><a href="future.html" class="active">Future</a></li>
+            </ul>
+            <div class="system-status"><span class="status-dot"></span><span class="status-text">SYSTEM ONLINE</span></div>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header reveal">
+                <span class="section-tag">// ROADMAP & EXTENSIONS</span>
+                <h1 class="section-title">Future <span class="accent-cyan">Improvements</span></h1>
+                <p class="page-subtitle">The next generation of SmartRide — planned features to make riding even safer.</p>
+            </div>
+
+            <div class="future-grid">
+                <div class="future-card reveal delay-1">
+                    <div class="future-icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>GPS Tracking</h3>
+                    <p>Real-time location sharing and ride history monitoring. Family members can track the rider's route live.</p>
+                </div>
+                <div class="future-card reveal delay-2">
+                    <div class="future-icon"><i class="fa-solid fa-car-burst"></i></div>
+                    <h3>Accident Detection</h3>
+                    <p>MPU-6050 accelerometer detects sudden impacts and triggers an automatic SOS protocol instantly.</p>
+                </div>
+                <div class="future-card reveal delay-3">
+                    <div class="future-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3>Mobile App</h3>
+                    <p>Dedicated Android/iOS application to monitor battery levels, sensor stats, and ride history in real-time.</p>
+                </div>
+                <div class="future-card reveal delay-4">
+                    <div class="future-icon"><i class="fa-solid fa-comment-dots"></i></div>
+                    <h3>Emergency SMS</h3>
+                    <p>Automated SMS dispatch to pre-configured emergency contacts with GPS coordinates on impact detection.</p>
+                </div>
+                <div class="future-card reveal delay-5">
+                    <div class="future-icon"><i class="fa-solid fa-ear-listen"></i></div>
+                    <h3>Voice Alerts</h3>
+                    <p>Audible voice commands and warnings for the rider via integrated Bluetooth speakers inside the helmet.</p>
+                </div>
+                <div class="future-card reveal delay-1">
+                    <div class="future-icon"><i class="fa-solid fa-wifi"></i></div>
+                    <h3>IoT Dashboard</h3>
+                    <p>Cloud-connected dashboard via ESP8266 for remote monitoring, analytics, and fleet management for organizations.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-nav" style="padding:2rem;">
+            <a href="emergency.html" class="page-nav-btn secondary"><i class="fa-solid fa-arrow-left"></i> EMERGENCY</a>
+            <a href="index.html" class="page-nav-btn">BACK TO HOME <i class="fa-solid fa-house"></i></a>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>

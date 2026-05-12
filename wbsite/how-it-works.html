@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartRide — How It Works</title>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Rajdhani:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="particle-canvas"></canvas>
+    <div class="orb orb-1"></div><div class="orb orb-2"></div><div class="orb orb-3"></div>
+    <div class="cursor-dot" id="cursor-dot"></div>
+    <div class="cursor-ring" id="cursor-ring"></div>
+    <div class="bg-grid"></div>
+
+    <nav class="navbar scrolled" id="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo"><div class="logo-icon"></div><span>SMART <span class="accent-orange">RIDE</span></span></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="how-it-works.html" class="active">How It Works</a></li>
+                <li><a href="components.html">Components</a></li>
+                <li><a href="safety.html">Safety Data</a></li>
+                <li><a href="emergency.html">Emergency</a></li>
+                <li><a href="future.html">Future</a></li>
+            </ul>
+            <div class="system-status"><span class="status-dot"></span><span class="status-text">SYSTEM ONLINE</span></div>
+            <div class="mobile-menu-btn"><i class="fa-solid fa-bars"></i></div>
+        </div>
+    </nav>
+
+    <main class="page-main">
+        <div class="container">
+            <div class="page-header reveal">
+                <span class="section-tag">// SYSTEM FLOW</span>
+                <h1 class="section-title">How It <span class="accent-cyan">Works</span></h1>
+                <p class="page-subtitle">A 4-step process that makes helmet usage non-negotiable before every ride.</p>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-line"></div>
+                <div class="timeline-step reveal delay-1">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+                    <h4>Wear Helmet</h4>
+                    <p>Rider puts on the smart helmet. The embedded FSR-402 pressure sensor detects head contact and activates the Arduino Nano.</p>
+                </div>
+                <div class="timeline-step reveal delay-2">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fa-solid fa-satellite-dish"></i></div>
+                    <h4>Sensor Triggers BT</h4>
+                    <p>Pressure above threshold (ADC > 300) activates the HC-05 Bluetooth module in MASTER mode to seek the bike's receiver.</p>
+                </div>
+                <div class="timeline-step reveal delay-3">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fa-solid fa-link"></i></div>
+                    <h4>Signal to Bike</h4>
+                    <p>Helmet sends authenticated packet <code class="code-inline">WORN,450,43.99,SR_UNLOCK_2024</code> every second to the bike's HC-05 SLAVE module.</p>
+                </div>
+                <div class="timeline-step reveal delay-4">
+                    <div class="step-number">04</div>
+                    <div class="step-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                    <h4>Ignition Unlocked</h4>
+                    <p>Arduino validates token → closes relay → bike starts. If helmet removed → relay opens → engine halts within 3 seconds.</p>
+                </div>
+            </div>
+
+            <!-- BT Protocol -->
+            <div class="protocol-section reveal">
+                <h2 class="section-title" style="margin-bottom:2rem;">BT <span class="accent-cyan">Protocol</span></h2>
+                <div class="protocol-grid">
+                    <div class="protocol-card">
+                        <div class="protocol-direction"><i class="fa-solid fa-arrow-right"></i> HELMET → BIKE</div>
+                        <div class="protocol-code">
+                            <div class="code-line"><span class="code-key">FORMAT:</span><span class="code-val">STATUS,RAW,kPa,TOKEN</span></div>
+                            <div class="code-line worn"><span class="code-key">WORN:</span><span class="code-val">WORN,450,43.99,SR_UNLOCK_2024</span></div>
+                            <div class="code-line offhead"><span class="code-key">OFF:</span><span class="code-val">OFFHEAD,12,1.17,SR_UNLOCK_2024</span></div>
+                        </div>
+                    </div>
+                    <div class="protocol-card">
+                        <div class="protocol-direction"><i class="fa-solid fa-arrow-left"></i> BIKE → HELMET</div>
+                        <div class="protocol-code">
+                            <div class="code-line worn"><span class="code-key">ACK_OK</span><span class="code-val">→ Ignition unlocked</span></div>
+                            <div class="code-line offhead"><span class="code-key">ACK_LOCK</span><span class="code-val">→ Ignition locked</span></div>
+                            <div class="code-line"><span class="code-key">TIMEOUT</span><span class="code-val">→ 3s no signal → lock</span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- User Instructions -->
+            <div class="reveal" style="margin-top:4rem;">
+                <h2 class="section-title" style="margin-bottom:2rem;">User <span class="accent-cyan">Instructions</span></h2>
+                <div class="instructions-block tech-card">
+                    <ul class="info-list">
+                        <li><i class="fa-solid fa-check-circle"></i><div class="list-content"><strong>Wear helmet properly</strong><p>Ensure the FSR sensor makes perfect contact with your head.</p></div></li>
+                        <li><i class="fa-solid fa-check-circle"></i><div class="list-content"><strong>Turn ON system</strong><p>Activate the power switches on both helmet and bike units.</p></div></li>
+                        <li><i class="fa-solid fa-check-circle"></i><div class="list-content"><strong>Ensure BT connection</strong><p>Wait for the green LED to show a solid, linked connection state.</p></div></li>
+                        <li><i class="fa-solid fa-check-circle"></i><div class="list-content"><strong>Start bike</strong><p>Only after the secure connection is confirmed, turn the ignition.</p></div></li>
+                        <li><i class="fa-solid fa-triangle-exclamation accent-orange"></i><div class="list-content"><strong class="accent-orange">Warning</strong><p class="accent-orange">Do not remove helmet while riding — it will instantly stop the engine.</p></div></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-nav">
+            <a href="about.html" class="page-nav-btn secondary"><i class="fa-solid fa-arrow-left"></i> ABOUT</a>
+            <a href="components.html" class="page-nav-btn">NEXT: COMPONENTS <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </main>
+
+    <script src="app.js"></script>
+</body>
+</html>
